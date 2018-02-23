@@ -3,14 +3,21 @@ let Items = require('../models/Items')
 
 DeleteButton = {
     view: function() {
-        if (Items.list.length > 0){
-            return m('button', 
+        const n = Items.countSelected()
+        if (Items.list.length > 0 && n == 1){
+            return m('button.delete', 
                 {onclick: function() {
                         Items.deleteSelected()
-                        console.log(Items.list)
                         }
                 }, 
-                'Delete selected')}
+                'Delete ' + n +' item')}
+        if (Items.list.length > 0 && n > 1){
+            return m('button.delete', 
+                {onclick: function() {
+                        Items.deleteSelected()
+                        }
+                }, 
+                'Delete ' + n +' items')}       
     }
 }
 

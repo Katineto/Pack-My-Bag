@@ -12,6 +12,16 @@ let Items = {
             return true
         }
     }, 
+    countSelected: function() {
+        const reducer = function(accumulator, curentValue) {
+            if(curentValue.selected == true) {
+                return accumulator +=1
+            } else return accumulator
+        }
+        let n = Items.list.reduce(reducer, 0)
+        return n
+    },
+
     fuzzySorting: function(a, b) {
         const scoreA = stringScore(a.name, Items.input, 0.5)
         const scoreB = stringScore(b.name, Items.input, 0.5)

@@ -16,16 +16,15 @@ function itemEditOnDblclick(item) {
                     if (Items.isValid(new_item)) {
                         item.name = new_item.name
                         item.tags = new_item.tags}
-                    console.log(item)
                 }
             }, 
             m('input[type=text]', 
             {
                 oninput: m.withAttr('value', function(value) {
                     item.original = value
-                    console.log(item.original)
                 }),
-                value: item.original
+                value: item.original,
+                class: 'edit-item-input'
             }
         )
     )
@@ -35,6 +34,7 @@ function itemEditOnDblclick(item) {
             class: item.selected ? 'item-selected' : 'item-not-selected',
             onclick: function() {
                 Items.toggleSelection(item)
+                Items.n = Items.countSelected()
             }
         },
         m('div.single-item', 
@@ -52,7 +52,6 @@ function itemEditOnDblclick(item) {
             title: 'Double-click to filter',
             ondblclick: m.withAttr('innerText', function(value){
                 Items.filterByTag(value)
-                console.log('double clicked!')
             })
         }, tag)
         }))
