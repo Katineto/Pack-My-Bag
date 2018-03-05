@@ -28,7 +28,7 @@ AddForm = {
                         }
                     }
                 }, [
-                    m('input[type=text][placeholder=Add something to your bag with tags separated by #]', {
+                    m('input[type=text][placeholder=Add items with tags separated by #]', {
                         class: 'main-input',
                         oninput: m.withAttr('value', function(value){
                             Items.input = value
