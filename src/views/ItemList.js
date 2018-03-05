@@ -68,12 +68,13 @@ let ItemList = {
             return m('div.item-list', 
             list.map(function(item) {
                 return m('div.list-wrapper', {key: item.id},
-                    m('input[type=checkbox]', {
-                        checked: item.checked,
-                        onclick: function() {
-                            Items.toggleCheckbox(item)
+                        m('div.checkbox-wrapper',
+                            m('input[type=checkbox]', {
+                            checked: item.checked,
+                            onclick: function() {
+                                Items.toggleCheckbox(item)
                         }
-                    }), 
+                    })), 
                     itemEditOnDblclick(item)
                 )
             })
