@@ -1,6 +1,7 @@
 body {
     margin: 0%
 }
+
 .header {
     background-color: #213349;
     width: 100%;
@@ -17,8 +18,10 @@ h1 {
     padding: 10px 0 10px 0 ; 
     color: #fff;
     font-size: 40px;
+
 }
 section {
+    width: 860px;
     margin: auto;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 18px;
